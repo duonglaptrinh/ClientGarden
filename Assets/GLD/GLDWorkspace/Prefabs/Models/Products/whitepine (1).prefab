@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4179747379392460685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4179747379392097197}
+  - component: {fileID: 4179747379395521421}
+  - component: {fileID: 4179747379394390349}
+  - component: {fileID: 676448492854830939}
+  - component: {fileID: 6599502312222440985}
+  m_Layer: 9
+  m_Name: whitepine (1)
+  m_TagString: Product
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4179747379392097197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179747379392460685}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4179747379395521421
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179747379392460685}
+  m_Mesh: {fileID: 4300000, guid: e01905f5c08be4648ae22d5c2fc1f7ca, type: 3}
+--- !u!23 &4179747379394390349
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179747379392460685}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bf6930e444c9b9645b6de41646fe52d8, type: 2}
+  - {fileID: 2100000, guid: 69debca4df6eca84fa4aed240319fae3, type: 2}
+  - {fileID: 2100000, guid: 1819bcc97a823404abd9ae1aca6fe427, type: 2}
+  - {fileID: 2100000, guid: 896e2e11cdc67894b8610b895f18def5, type: 2}
+  - {fileID: 2100000, guid: 73a7ec4a7d1fac246ad29ee62d067a33, type: 2}
+  - {fileID: 2100000, guid: dc7071c6c69d77e4c967c01853f360cf, type: 2}
+  - {fileID: 2100000, guid: bf4eea23f5f33a84cbba786f9cb3ae0a, type: 2}
+  - {fileID: 2100000, guid: d4abdf6bbb0edf3439ffb16c8551b7d1, type: 2}
+  - {fileID: 2100000, guid: 295a64d4df005b14d92860935042fdd2, type: 2}
+  - {fileID: 2100000, guid: 3affec4acc102ef4aaf0b64e5b90ab31, type: 2}
+  - {fileID: 2100000, guid: bf482590d33dac0438fcc406afe81e40, type: 2}
+  - {fileID: 2100000, guid: 7d127dab54179144aa6dde2e911a51ff, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &676448492854830939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179747379392460685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc301311d9063b4aacb70f72ffb3cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6599502312222440985
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179747379392460685}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0053099315, y: 0.004964937, z: 0.014999804}
+  m_Center: {x: -0.0026549657, y: 0.0013174817, z: 0.007499902}

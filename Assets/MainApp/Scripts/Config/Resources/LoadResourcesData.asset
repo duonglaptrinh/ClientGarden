@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651a32e1bababbf4c9522fed79eae6be, type: 3}
+  m_Name: LoadResourcesData
+  m_EditorClassIdentifier: 
+  icon_Room: {fileID: 2800000, guid: 738bba329879af94fb5bbfe4e55851f7, type: 3}
+  prefabApiInputTestTablet: {fileID: 4123861193364566639, guid: 8ec4d9b1365d64545b418dfa5c7db3ef,
+    type: 3}
+  skybox: {fileID: 2100000, guid: f98842c1abead1047a580987a583c6ae, type: 2}
+  skyboxNight: {fileID: 2100000, guid: 8f336b8cad94b7f4d9fc10c502b81aba, type: 2}
+  listThumbnailCategory:
+  - nameCategory: "\u30D5\u30A1\u30B5\u30FC\u30C9"
+    thumbnai: {fileID: 21300000, guid: 9969b8fa4fa3ee74d8cf931c6522f684, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u9580\u67F1"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 9428ae9d6965e374a9c70e0035d37639, type: 3}
+    - categorySubName: "\u9580\u6249"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 55fc5e46961480e41bbd4a805ffb1d11, type: 3}
+    - categorySubName: "\u7384\u95A2\u307E\u308F\u308A\u30D1\u30C3\u30B1\u30FC\u30B8"
+      categoryNameOnApp: "\u7384\u95A2\u307E\u308F\u308A$\u30D1\u30C3\u30B1\u30FC\u30B8"
+      thumbnai: {fileID: 21300000, guid: 12eb2e55f154d9c4da8098c291469141, type: 3}
+    - categorySubName: "\u9580\u307E\u308F\u308A\u30D1\u30C3\u30B1\u30FC\u30B8"
+      categoryNameOnApp: "\u9580\u307E\u308F\u308A$\u30D1\u30C3\u30B1\u30FC\u30B8"
+      thumbnai: {fileID: 21300000, guid: e8c9eb67b311ca04487dcb02ffd39d53, type: 3}
+  - nameCategory: "\u30B9\u30AF\u30EA\u30FC\u30F3"
+    thumbnai: {fileID: 21300000, guid: 37ba0b80584c5d84d8058f9ef4ab8647, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30B9\u30AF\u30EA\u30FC\u30F3"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 0a6998a7b6ee73d498fc558638b08991, type: 3}
+    - categorySubName: "\u30DC\u30FC\u30C9\u30D5\u30A7\u30F3\u30B9"
+      categoryNameOnApp: "\u30DC\u30FC\u30C9$\u30D5\u30A7\u30F3\u30B9"
+      thumbnai: {fileID: 21300000, guid: 3fa001ad7eea5e5479ac6d497f208ac1, type: 3}
+    - categorySubName: "\u30E1\u30C3\u30B7\u30E5\u30D5\u30A7\u30F3\u30B9"
+      categoryNameOnApp: "\u30E1\u30C3\u30B7\u30E5$\u30D5\u30A7\u30F3\u30B9"
+      thumbnai: {fileID: 21300000, guid: 4c486d85c6720f54893321bad105dc6c, type: 3}
+    - categorySubName: "\u6A2A\u677F\u30FB\u6A2A\u683C\u5B50"
+      categoryNameOnApp: "\u6A2A\u677F$\u6A2A\u683C\u5B50"
+      thumbnai: {fileID: 21300000, guid: feced60d6be92ca47a3240ef9d6e21ed, type: 3}
+    - categorySubName: "\u7E26\u677F\u30FB\u7E26\u683C\u5B50"
+      categoryNameOnApp: "\u7E26\u677F$\u7E26\u683C\u5B50"
+      thumbnai: {fileID: 21300000, guid: b0b8041401a10f049bfd60ddb771a06f, type: 3}
+    - categorySubName: "\u7AF9\u57A3"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: bd4af752a5ab0d143b0a3781786f4b14, type: 3}
+  - nameCategory: "\u304A\u5EAD"
+    thumbnai: {fileID: 21300000, guid: 2ad42acd15d263543a55ff04836ec61a, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30C7\u30C3\u30AD"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 8be2d17480e65da4ab7ef50bc07d98b1, type: 3}
+    - categorySubName: "\u30C6\u30E9\u30B9"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 4565c1ab629fa4e499e9aa39c594b2e1, type: 3}
+    - categorySubName: "\u5EAD\u307E\u308F\u308A\u30D1\u30C3\u30B1\u30FC\u30B8"
+      categoryNameOnApp: "\u5EAD\u307E\u308F\u308A$\u30D1\u30C3\u30B1\u30FC\u30B8"
+      thumbnai: {fileID: 21300000, guid: 1963493c23d41df4fb441a9073c08fad, type: 3}
+  - nameCategory: "\u8ECA\u5EAB\u307E\u308F\u308A"
+    thumbnai: {fileID: 21300000, guid: faef5ec6d30a7704e8f3aca4d3e054db, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30A2\u30FC\u30C8\u30DD\u30FC\u30C8"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 592a36025cfeabf48a56efe35a71bf5a, type: 3}
+    - categorySubName: "\u30A2\u30FC\u30C8\u30DD\u30FC\u30C8\u30DF\u30CB"
+      categoryNameOnApp: "\u30A2\u30FC\u30C8\u30DD\u30FC\u30C8$\u30DF\u30CB         "
+      thumbnai: {fileID: 21300000, guid: 578c886d9892448408d466da17c496dc, type: 3}
+    - categorySubName: "\u30A2\u30FC\u30C8\u30DD\u30FC\u30C8\u30EF\u30A4\u30C9"
+      categoryNameOnApp: "\u30A2\u30FC\u30C8\u30DD\u30FC\u30C8$\u30EF\u30A4\u30C9"
+      thumbnai: {fileID: 21300000, guid: e8ffbf4c3cc387046bcd61d9d621862a, type: 3}
+    - categorySubName: "\u30DB\u30FC\u30E0\u30E4\u30FC\u30C9\u30EB\u30FC\u30D5\u30AB\u30FC\u30E4\u30FC\u30C9\u30B9\u30BF\u30A4\u30EB"
+      categoryNameOnApp: "\u30DB\u30FC\u30E0\u30E4\u30FC\u30C9\u30EB\u30FC\u30D5$\u30AB\u30FC\u30E4\u30FC\u30C9\u30B9\u30BF\u30A4\u30EB"
+      thumbnai: {fileID: 21300000, guid: 747d099a0f7f435458f098da69ca0010, type: 3}
+  - nameCategory: "\u30D5\u30A1\u30CB\u30C1\u30E3\u30FC"
+    thumbnai: {fileID: 21300000, guid: cab49a415908f2f4cad929a687bdfd87, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30C6\u30FC\u30D6\u30EB"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: a10af920a374e4d48821830ae052c0d1, type: 3}
+    - categorySubName: "\u30BD\u30D5\u30A1"
+      categoryNameOnApp: "\u30BD\u30D5\u30A1\u30FC"
+      thumbnai: {fileID: 21300000, guid: 7b17069b63e82fd46a73b9548b106e8a, type: 3}
+    - categorySubName: "\u30C1\u30A7\u30A2\u30FC"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 636ba07f03b53c645b38c2106670bc64, type: 3}
+    - categorySubName: "\u30D5\u30A1\u30CB\u30C1\u30E3\u30FC\u30BB\u30C3\u30C8"
+      categoryNameOnApp: "\u30D5\u30A1\u30CB\u30C1\u30E3\u30FC$\u30BB\u30C3\u30C8"
+      thumbnai: {fileID: 21300000, guid: 30d679bd889ce954da9c8f60c699b299, type: 3}
+  - nameCategory: "\u690D\u683D"
+    thumbnai: {fileID: 21300000, guid: 6f10eede4eba9e04988ce3404310a48a, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30B7\u30F3\u30DC\u30EB\u30C4\u30EA\u30FC"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: af24b916409dcdf408edff5d7de6f668, type: 3}
+    - categorySubName: "\u4E2D\u6728\u30FB\u751F\u57A3"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 672479121d2bd2f42b22fff2790b47e9, type: 3}
+    - categorySubName: "\u4E0B\u8349"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 3f592f0f2da0a3747be42ee37145800d, type: 3}
+  - nameCategory: "\u305D\u306E\u4ED6"
+    thumbnai: {fileID: 21300000, guid: 88cf9552dadfdf04ab508ace1e177efc, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u5EFA\u7269"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: a789e5e21780ac44683bc5d862c87d3f, type: 3}
+    - categorySubName: "\u5E8A\u30FB\u58C1"
+      categoryNameOnApp: "\u5E8A\u30FB\u58C1"
+      thumbnai: {fileID: 21300000, guid: ce64fc9dc68cfc845b810340d3bbaaca, type: 3}
+    - categorySubName: "\u7167\u660E"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 3aeb99e73f1670d408e055d076e71564, type: 3}
+    - categorySubName: "\u30A4\u30F3\u30C6\u30EA\u30A2"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 05ee5aa34f3b66448afbcc403ec47e01, type: 3}
+    - categorySubName: "\u4E57\u308A\u7269"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 46475fc2f9ec24646a97c201244c60fb, type: 3}
+  - nameCategory: "\u5E8A\u6750"
+    thumbnai: {fileID: 21300000, guid: cf2d69858c163b94bbc672cf3127a2b3, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30BF\u30A4\u30EB\uFF08\u5E8A\u7528\uFF09"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 0848291b8b2cd4d44b7d0c59c6731cd1, type: 3}
+    - categorySubName: "\u4E00\u822C\u7D20\u6750\uFF08\u5E8A\u6750\uFF09"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 23b2d3a4e24203644b3fee2d1e600961, type: 3}
+  - nameCategory: "\u58C1\u6750"
+    thumbnai: {fileID: 21300000, guid: 2f0dbda62bcdcb24bb62c3cf0a9a15ba, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30A8\u30D0\u30FC\u30A2\u30FC\u30C8\u30DC\u30FC\u30C9"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 0bd35c6417fbd9b448a6b2c8240a8f8a, type: 3}
+    - categorySubName: "\u30A8\u30D0\u30FC\u30A2\u30FC\u30C8\u30DC\u30FC\u30C9\u30B7\u30C3\u30AF"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: f2dcd050e4da7c74caa42bd658f439d5, type: 3}
+    - categorySubName: "\u30BF\u30A4\u30EB\uFF08\u58C1\u7528\uFF09"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 81200250551bc904faecb79dfb4e6a77, type: 3}
+    - categorySubName: "\u4E00\u822C\u7D20\u6750\uFF08\u58C1\u6750\uFF09"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: a15b492233b01f949be905e325a81510, type: 3}
+    - categorySubName: "\u30AC\u30FC\u30C7\u30F3\u30B8\u30E7\u30EA\u30D1\u30C3\u30C8"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 9cce1ec44de69f045b18caa272256c03, type: 3}
+  - nameCategory: "\u30A4\u30F3\u30C6\u30EA\u30A2"
+    thumbnai: {fileID: 21300000, guid: fbc1ed4baf1b6ee449d4f7c4415e68ac, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30EA\u30D3\u30F3\u30B0"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 31381bbada4469a4c8bc68b95af1bede, type: 3}
+    - categorySubName: "\u30C0\u30A4\u30CB\u30F3\u30B0"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 83ce578685268304e9252da127617054, type: 3}
+    - categorySubName: "\u30D9\u30C3\u30C9\u30EB\u30FC\u30E0"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 0e23057c2d580b7419ea61b4a9fc03f6, type: 3}
+    - categorySubName: "\u500B\u5BA4"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 6c793b757daea0346b7d70529c5b89d9, type: 3}
+    - categorySubName: "\u30AD\u30C3\u30C1\u30F3"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 147656e8c59249e42beda43538638e6a, type: 3}
+    - categorySubName: "\u30D0\u30B9\u30EB\u30FC\u30E0"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 7fadb3169ef1893439e90c776e9f6384, type: 3}
+    - categorySubName: "\u5C0F\u7269\u985E"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: fbc1ed4baf1b6ee449d4f7c4415e68ac, type: 3}
+  - nameCategory: "\u7167\u660E"
+    thumbnai: {fileID: 21300000, guid: f61b7894055753a439b7372a8ce63fb0, type: 3}
+    listSubCategoryData:
+    - categorySubName: "\u30DD\u30FC\u30EB\u30E9\u30A4\u30C8"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: f61b7894055753a439b7372a8ce63fb0, type: 3}
+    - categorySubName: "\u30A6\u30A9\u30FC\u30EB\u30E9\u30A4\u30C8"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: d73de2740ff1b3744be947a4cc3130df, type: 3}
+    - categorySubName: "\u30B9\u30BF\u30F3\u30C9\u30E9\u30A4\u30C8"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: ebbead774ec558e48a8a60b9a6c262e1, type: 3}
+    - categorySubName: "\u30A2\u30C3\u30D7\u30E9\u30A4\u30C8"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 2fbebf2cf0c3ca64cad492ef3a766faf, type: 3}
+    - categorySubName: "\u30C0\u30A6\u30F3\u30E9\u30A4\u30C8"
+      categoryNameOnApp: 
+      thumbnai: {fileID: 21300000, guid: 8284a2c66650abf49b10985709d36f59, type: 3}
+  listThumbnailTemplate:
+  - {fileID: 21300000, guid: 4afd0a6001392f645b1b12dff0fd907d, type: 3}
+  - {fileID: 21300000, guid: d6f7bbb7a81d84b46a39b6c179619440, type: 3}
+  - {fileID: 21300000, guid: 8f9e5e1b8fbc25c4e9f14060b5d7d09e, type: 3}
+  - {fileID: 21300000, guid: 37e95d108a3a3b54d9812514409011dc, type: 3}
+  - {fileID: 21300000, guid: e88ebd7feb53c3446b1780828162ecc1, type: 3}
+  jsonTemplate: {fileID: 4900000, guid: 6d15a3cedb3bd4b4e9cca21b522bef05, type: 3}
+  listSpriteThumbTutorials:
+  - {fileID: 21300000, guid: 1f467fe5bfedcef4e911fc4f1003d597, type: 3}
+  - {fileID: 21300000, guid: fa8714bb7be3de143a6f04288192148f, type: 3}
+  - {fileID: 21300000, guid: 8af86bdf4c2109346a0be9ea1165d46d, type: 3}
+  - {fileID: 21300000, guid: 71472827c0e28bd42b548c00b5846078, type: 3}
+  - {fileID: 21300000, guid: 9f97254578bf44a41a27917276759ec9, type: 3}
+  - {fileID: 21300000, guid: 2cac6b830539eef42b45abe3931d0168, type: 3}
+  - {fileID: 21300000, guid: 25a58cb39aa8cb641ae9a2474887b2e6, type: 3}
+  - {fileID: 21300000, guid: 17ffd5b2f9c79404c8dab369efdaad8b, type: 3}
+  listSpriteBackgroundTutorials:
+  - {fileID: 21300000, guid: 74c06d419f7fbc24e9e6e3f213a39560, type: 3}
+  - {fileID: 21300000, guid: b115b1a03fa86104d99fd741e22a08e1, type: 3}
+  - {fileID: 21300000, guid: 80da55186e418ee459ae917fafd1b158, type: 3}
+  - {fileID: 21300000, guid: de1770c3928bc5a409579aadbfb3ec2e, type: 3}
+  - {fileID: 21300000, guid: 189d10b750839684e8b0684ea34352a4, type: 3}
+  icon_Room_Empty: {fileID: 2800000, guid: d4edb962994ad124fa8f2bbdc5a1ff8f, type: 3}
+  listCategoryMenu:
+  - nameCategory: "\u5E8A\u30FB\u58C1"
+    type: 0
+    nameTitle: "\u5E8A\u30FB\u58C1"
+    iconImage: {fileID: 0}
+  - nameCategory: Out_Side_all
+    type: 1
+    nameTitle: "\u30A8\u30AF\u30B9\u30C6\u30EA\u30A2"
+    iconImage: {fileID: 0}
+  - nameCategory: "\u30A4\u30F3\u30C6\u30EA\u30A2"
+    type: 2
+    nameTitle: "\u30A4\u30F3\u30C6\u30EA\u30A2"
+    iconImage: {fileID: 0}
+  - nameCategory: "\u690D\u683D"
+    type: 3
+    nameTitle: "\u690D\u683D"
+    iconImage: {fileID: 0}
+  - nameCategory: "\u4E57\u308A\u7269"
+    type: 4
+    nameTitle: "\u4E57\u7269"
+    iconImage: {fileID: 0}
+  - nameCategory: "\u5EFA\u7269"
+    type: 5
+    nameTitle: "\u5468\u8FBA\u74B0\u5883"
+    iconImage: {fileID: 0}

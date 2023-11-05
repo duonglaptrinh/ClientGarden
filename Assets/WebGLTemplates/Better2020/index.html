@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="robots" content="noindex,follow" />
+  <title>Virtual Home & Garden</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+  <link rel="stylesheet" href="TemplateData/style.css" />
+
+  <link rel="stylesheet" href="js/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}">
+  <div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas"></canvas>
+    <!-- <div class="container"> -->
+    <div id="box-chat">
+      <div class="menu-header">
+        <span class="title">
+          ルームメンバー
+          <span id="close-button">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </span>
+        </span>
+      </div>
+
+      <div id="content-video">
+
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <div id="feature">
+      <!--<span id="toggle-video">ルームメンバー</span>-->
+    </div>
+
+    <div id="unity-fullscreen-button" style="display: none;"></div>
+
+  </div>
+  <div id="loading-cover" style="display: none;">
+    <div id="unity-loading-bar">
+      <div id="unity-logo">
+        <img src="logo.png" style="width: 300px; height: 300px;" />
+      </div>
+      <div id="unity-progress-bar-empty" style="display: none;">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+  </div>
+  <div id="media-receiver"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/display.js"></script>
+  <script src="js/feature.js"></script>
+
+  <script>
+    const hideFullScreenButton = "{{{ HIDE_FULL_SCREEN_BUTTON }}}";
+    const buildUrl = "Build";
+    const loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+    const config = {
+      dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+      frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+      codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+      #if MEMORY_FILENAME
+              memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
+      #endif
+      #if SYMBOLS_FILENAME
+              symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
+      #endif
+              streamingAssetsUrl: "StreamingAssets",
+      companyName: "{{{ COMPANY_NAME }}}",
+      productName: "{{{ PRODUCT_NAME }}}",
+      productVersion: "{{{ PRODUCT_VERSION }}}",
+    };
+
+    const container = document.querySelector("#unity-container");
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingCover = document.querySelector("#loading-cover");
+    const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    //const spinner = document.querySelector('.spinner');
+
+    const canFullscreen = (function () {
+      for (const key of [
+        'exitFullscreen',
+        'webkitExitFullscreen',
+        'webkitCancelFullScreen',
+        'mozCancelFullScreen',
+        'msExitFullscreen',
+      ]) {
+        if (key in document) {
+          return true;
+        }
+      }
+      return false;
+    }());
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.userAgent.toLowerCase().indexOf("macintosh") > -1 && "ontouchend" in document)) {
+      container.className = "unity-mobile";
+      config.devicePixelRatio = 1;
+    }
+    #if BACKGROUND_FILENAME
+    canvas.style.background = "url('" + buildUrl + "/{{{ BACKGROUND_FILENAME.replace(/'/g, '%27') }}}') center / cover";
+    #endif
+    loadingCover.style.display = "";
+
+    const script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
+      InGame();
+    }
+    //   createUnityInstance(canvas, config, (progress) => {
+    //     spinner.style.display = "none";
+    //     progressBarEmpty.style.display = "";
+    //     progressBarFull.style.width = `${100 * progress}%`;
+    //   }).then((unityInstance) => {
+    //     loadingCover.style.display = "none";
+    //     if (canFullscreen) {
+    //       if (!hideFullScreenButton) {
+    //         fullscreenButton.style.display = "";
+    //       }
+    //       fullscreenButton.onclick = () => {
+    //         unityInstance.SetFullscreen(1);
+    //       };
+    //     }
+    //   }).catch((message) => {
+    //     alert(message);
+    //   });
+    // };
+    document.body.appendChild(script);
+  </script>
+  <script>
+    function InGame() {
+      createUnityInstance(canvas, config, (progress) => {
+        //spinner.style.display = "none";
+        progressBarEmpty.style.display = ''
+        progressBarFull.style.width = `${100 * progress}%`
+      })
+        .then((unityInstance) => {
+          MyGameInstance = unityInstance;
+            StartApp();
+          loadingCover.style.display = 'none'
+          if (canFullscreen) {
+            if (!hideFullScreenButton) {
+              fullscreenButton.style.display = ''
+            }
+            fullscreenButton.onclick = () => {
+              // unityInstance.SetFullscreen(1)
+              fullScreenDocument();
+            }
+          }
+        })
+        .catch((message) => {
+          alert(message)
+        })
+    }
+
+    function OnOpenVoiceCall() {
+      toogleFeatureBtn(true)
+    }
+
+    function OnCloseVoiceCall() {
+      toogleFeatureBtn(false)
+      toogleBoxChat(false)
+    }
+
+    function SetBorderColor(id, color) {
+      console.log("SetBorderColor " + id + " :" + color)
+      peerColors.set(id, color)
+      UpdateColor(id)
+    }
+
+    function UpdateColor(id) {
+      var color = peerColors.get(id)
+      if (color)
+        setColorVideo(id, color)
+    }
+
+    function UpdateStatus(id){
+      var pStatus = peerStatuses.get(id)
+      if(pStatus){
+        const peerConnection = peers.get(id)
+        if (peerConnection) {
+          peerConnection.isMicOn = pStatus.IsMicOn;
+          peerConnection.isCameraOn = pStatus.IsVideoOn;
+
+          setUIButtonMicrophone(peerConnection.id, peerConnection.isMicOn)
+          setUIButtonCamera(peerConnection.id,peerConnection.isCameraOn);
+        }
+      }
+    }
+
+    var peerColors = new Map()
+    var peerStatuses = new Map()
+
+    // call support
+    var peers = new Map()
+
+    var medias = new Map()
+
+    function DestroyAllPeer() {
+
+      console.log("Destroy all peer")
+
+      if (sharingPeer && sharingPeer.signalingState != 'closed') {
+        sharingPeer.close()
+      }
+
+      if (sharingItem) {
+        sharingItem.remove()
+      }
+
+      medias.forEach((value, key) => {
+        if (value) {
+          value.remove()
+        }
+      })
+
+      medias.clear()
+
+      peers.forEach((value, key) => {
+        if (value && value.signalingState != 'closed') {
+          value.close()
+        }
+      })
+
+      peers.clear()
+      // peerColors.clear()
+      // peerStatuses.clear()
+
+      sharingItem = null
+      sharingPeer = null
+    }
+
+    var sharingItem = null
+    var sharingPeer = null
+
+    function AddSharingVideo(id, username, peerConnection) {
+
+      if (sharingItem) {
+        sharingItem.remove()
+        sharingItem = null
+      }
+
+      addItemVideo(id, username, peerConnection.isMicOn, peerConnection.isCameraOn);
+      let item = document.getElementById(`${id}`);
+      let video = document.getElementById(`video-${id}`);
+      // const video = document.createElement('video');
+
+      video.autoplay = true;
+      video.controls = false;
+      video.muted = true;
+      video.height = 240; // 👈️ in px
+      video.width = 320;
+      medias.set(id, item)
+      sharingItem = item
+      sharingItem.id = id
+
+      return video
+    }
+
+    function ToggleAudio(peerConnection) {
+      peerConnection.isMicOn = !peerConnection.isMicOn
+      setUIButtonMicrophone(peerConnection.id, peerConnection.isMicOn)
+      setTrack(peerConnection, 'audio', peerConnection.isMicOn)
+
+      LocalVoiceCallStatusUpdated(peerConnection)
+      
+    }
+
+    function ToggleVideo(peerConnection) {
+      peerConnection.isCameraOn = !peerConnection.isCameraOn
+      setUIButtonCamera(peerConnection.id, peerConnection.isCameraOn)
+      setTrack(peerConnection, 'video', peerConnection.isCameraOn)
+
+      LocalVoiceCallStatusUpdated(peerConnection)
+    }
+
+    function toggleVoice(id) {
+      peerConnection = peers.get(id)
+      if (peerConnection) {
+        ToggleAudio(peerConnection)
+      }
+    }
+
+    function toggleVideo(id) {
+      peerConnection = peers.get(id)
+      if (peerConnection) {
+        ToggleVideo(peerConnection)
+      }
+    }
+
+    function toggleOtherVoice(id) {
+      peerConnection = peers.get(id)
+      if (peerConnection) {
+        ToggleOtherAudio(peerConnection)
+      }
+    }
+
+    function toggleOtherVideo(id) {
+      peerConnection = peers.get(id)
+      if (peerConnection) {
+        ToggleOtherVideo(peerConnection)
+      }
+    }
+
+    function ToggleOtherAudio(peerConnection) {
+      // peerConnection.isMicOn = !peerConnection.isMicOn
+      // setUIButtonMicrophone(peerConnection.id, peerConnection.isMicOn)
+      // setTrack(peerConnection, 'audio', peerConnection.isMicOn)
+      UpdateRemoteVoiceCallStatus(peerConnection,peerConnection.isCameraOn,!peerConnection.isMicOn)
+    }
+
+    function ToggleOtherVideo(peerConnection) {
+      // peerConnection.isCameraOn = !peerConnection.isCameraOn
+      // setUIButtonCamera(peerConnection.id, peerConnection.isCameraOn)
+      // setTrack(peerConnection, 'video', peerConnection.isCameraOn)
+            UpdateRemoteVoiceCallStatus(peerConnection,!peerConnection.isCameraOn,peerConnection.isMicOn)
+    }
+
+    /* stream: MediaStream, type:trackType('audio'/'video') */
+    function setTrack(peerConnection, type, enable) {
+      if (peerConnection.srcStream) {
+        peerConnection.srcStream.getTracks().forEach((track) => {
+          if (track.kind === type) {
+            track.enabled = enable;
+          }
+        });
+      }
+    }
+
+    function AddMediaReceiver(id, username) {
+
+      if (sharingPeer && sharingPeer.id == id)
+        return;
+
+      RemoveMediaReceiver(id);
+      // const container = document.getElementById("media-receiver")
+      addOtherVideo(id, username, true, true);
+      let item = document.getElementById(`${id}`);
+      let video = document.getElementById(`video-${id}`);
+      // const video = document.createElement('video');
+
+      video.autoplay = true;
+      video.controls = false;
+      video.muted = false;
+      video.height = 240; // 👈️ in px
+      video.width = 320;
+      // container.appendChild(video)
+
+      medias.set(id, item)
+      return video
+    }
+
+    function RemoveMediaReceiver(id) {
+      let item = medias.get(id)
+      if (item) {
+        item.remove();
+      }
+      medias.delete(id)
+    }
+
+    async function CreatePeerFromOfferAsync(id, sdpOffer, configuration) {
+      const peerConnection = new RTCPeerConnection(configuration)
+      peerConnection.id = id
+      console.log("CREATE DOWN PEER ID:" + id)
+      SendCreated(id)
+
+      peerConnection.isMicOn = true
+      peerConnection.isCameraOn = true
+
+      peerConnection.addEventListener('icecandidate', (event) => {
+        if (event.candidate) {
+          SendIceCandidate(peerConnection.id, event.candidate)
+        }
+      })
+
+      peerConnection.addEventListener('connectionstatechange', (event) => {
+        if (peerConnection.connectionState === 'connected') {
+          console.log('Down peer connected')
+        }
+      })
+
+      var remoteVideo = AddMediaReceiver(id, configuration.username)
+
+      if (configuration.device.toLowerCase() === "quest") {
+        setQuestTag(id)
+      }
+
+      peerConnection.ontrack = async (event) => {
+        console.log('ontrack ' + JSON.stringify(event.streams) + JSON.stringify(event.track))
+
+        if (event.streams && event.streams[0]) {
+          remoteVideo.srcObject = event.streams[0];
+        } else {
+          let inboundStream = new MediaStream();
+          inboundStream.addTrack(event.track);
+          remoteVideo.srcObject = inboundStream;
+        }
+
+        peerConnection.remoteVideo = remoteVideo;
+      }
+
+      if (peerConnection.signalingState != 'closed') {
+        peerConnection.setRemoteDescription(JSON.parse(sdpOffer))
+        const answer = await peerConnection.createAnswer()
+        await peerConnection.setLocalDescription(answer)
+        SendSdp(peerConnection.id, false, answer)
+        peers.set(id, peerConnection)
+        UpdateColor(id)
+        UpdateStatus(id)
+      }
+    }
+
+    function checkStream(stream){
+      var hasMedia={hasVideo:false,hasAudio:false};
+      var audioTracks = stream.getAudioTracks();
+      var videoTracks = stream.getVideoTracks();
+      if(audioTracks)// checking audio presence
+      {
+        audioTracks.forEach((track)=>{
+          if(track.enabled)
+            hasMedia.hasAudio=true;
+        })
+      }
+      if(videoTracks)// checking video presence
+      {
+        videoTracks.forEach((track)=>{
+          if(track.enabled)
+            hasMedia.hasVideo=true;
+        })
+      }
+
+      return hasMedia; 
+    }
+
+    function checkPeers(){
+      // console.log("Check peers");
+      peers.forEach(function(peerConnection, key) {
+	      if(peerConnection && peerConnection.remoteVideo){
+          if(peerConnection.remoteVideo.srcObject){
+            var hasMedia = checkStream(peerConnection.remoteVideo.srcObject)
+
+            peerConnection.isMicOn = hasMedia.hasAudio;
+            peerConnection.isCameraOn = hasMedia.hasVideo;
+          }
+
+          setUIButtonMicrophone(peerConnection.id, peerConnection.isMicOn)
+          setUIButtonCamera(peerConnection.id,peerConnection.isCameraOn);
+        }
+      })
+    }
+
+    // setInterval(checkPeers, 1000);
+
+    function SetVoiceCallStatus(id,status){
+      var pStatus = JSON.parse(status);
+      const peerConnection = peers.get(id)
+      if (peerConnection) {
+        peerConnection.isMicOn = pStatus.IsMicOn;
+        peerConnection.isCameraOn = pStatus.IsVideoOn;
+
+        setUIButtonMicrophone(peerConnection.id, peerConnection.isMicOn)
+        setUIButtonCamera(peerConnection.id,peerConnection.isCameraOn);
+        if(peerConnection.isSharing){
+            console.log("SetVoiceCallStatus");
+            setTrack(peerConnection, 'video', peerConnection.isCameraOn)
+            setTrack(peerConnection, 'audio', peerConnection.isMicOn)
+          }
+      }
+
+      peerStatuses.set(id,pStatus)
+    }
+
+    var sharingVideo;
+    async function CreatePeerAsync(id, configuration) {
+      DestroyPeerAsync(id)
+      const peerConnection = new RTCPeerConnection(configuration)
+      peerConnection.id = id
+      SendCreated(id)
+
+      peerConnection.isMicOn = true
+      peerConnection.isCameraOn = true
+
+      if (sharingPeer && sharingPeer.signalingState != 'closed') {
+        sharingPeer.close()
+      }
+      sharingPeer = peerConnection
+
+      sharingVideo = AddSharingVideo(id, configuration.username, peerConnection)
+
+      peerConnection.addEventListener('icecandidate', (event) => {
+        if (event.candidate) {
+          SendIceCandidate(peerConnection.id, event.candidate)
+        }
+      })
+
+      peerConnection.addEventListener('connectionstatechange', (event) => {
+        if (peerConnection.connectionState === 'connected') {
+          console.log('Up peer connected')
+        }
+      })
+
+      let stream = null;
+
+try {
+  const tryStream = await navigator.mediaDevices.getUserMedia({
+    audio: true,
+    video: {
+        width: { min: 320, ideal: 320, max: 480 },
+        height: { min: 240, ideal: 240, max: 240 },
+    }
+  });
+
+  const videoTrack = tryStream.getVideoTracks()[0];
+  const settings = videoTrack.getSettings();
+  console.log('Video resolution:', settings.width, 'x', settings.height);
+
+  stream = tryStream;
+  // code to handle the successful case where the user has granted access to the camera and microphone
+} catch (error) {
+  try {
+    const tryStream = await navigator.mediaDevices.getUserMedia({
+      audio: true,
+      video: false,
+    });
+
+    stream = tryStream;
+    // code to handle the successful case where the user has granted access to the camera and microphone
+  } catch (error) {
+    
+  }
+}
+
+      peerConnection.srcStream = stream
+      peerConnection.isSharing = true
+      sharingVideo.srcObject = stream
+      // stream.getTracks().forEach((track) => peerConnection.addTrack(track, stream))
+      var camVideoTrack = stream.getVideoTracks()[0];
+      var audioTrack = stream.getAudioTracks()[0];
+      if(camVideoTrack)
+        videoSender = peerConnection.addTrack(camVideoTrack, stream)
+      if(audioTrack)
+        audioSender = peerConnection.addTrack(audioTrack, stream)
+
+      const offer = await peerConnection.createOffer()
+      await peerConnection.setLocalDescription(offer)
+      SendSdp(peerConnection.id, true, offer)
+      peers.set(id, peerConnection)
+      UpdateColor(id)
+      UpdateStatus(id)
+      LocalVoiceCallStatusUpdated(peerConnection)
+    }
+
+    var videoSender;
+    var audioSender;
+
+    async function DestroyPeerAsync(id) {
+      RemoveMediaReceiver(id)
+      const peerConnection = peers.get(id)
+      if (peerConnection) {
+        peerConnection.close()
+        peers.delete(id)
+      }
+    }
+
+    async function FeedAnswerAsync(id, sdpAnswer) {
+      console.log("Feed sdp answer " + id + " : " + sdpAnswer);
+      const peerConnection = peers.get(id)
+      if (peerConnection && peerConnection.signalingState != 'closed') await peerConnection.setRemoteDescription(JSON.parse(sdpAnswer))
+    }
+
+    async function FeedIceCandidateAsync(id, iceCandidate) {
+      console.log("Feed ice " + id + " with candidate : " + iceCandidate);
+      const peerConnection = peers.get(id)
+      if (peerConnection && peerConnection.signalingState != 'closed') await peerConnection.addIceCandidate(JSON.parse(iceCandidate))
+    }
+
+    function SendSdp(id, isOffer, sdp) {
+      if (isOffer) {
+        MyGameInstance.SendMessage(
+          'VoiceCallSupportWebGL',
+          'SendSdpOffer',
+          JSON.stringify(
+            {
+              id: id,
+              data: sdp
+            })
+        )
+      } else {
+        MyGameInstance.SendMessage(
+          'VoiceCallSupportWebGL',
+          'SendSdpAnswer',
+          JSON.stringify(
+            {
+              id: id,
+              data: sdp
+            })
+        )
+      }
+    }
+
+    function SendIceCandidate(id, iceCandidate) {
+      MyGameInstance.SendMessage(
+        'VoiceCallSupportWebGL',
+        'SendIceCandidate',
+        JSON.stringify(
+          {
+            id: id,
+            data: iceCandidate
+          })
+      )
+    }
+
+    function SendCreated(id) {
+      MyGameInstance.SendMessage(
+        'VoiceCallSupportWebGL',
+        'Created',
+        id
+      )
+    }
+
+    function ReloadUpStream() {
+      MyGameInstance.SendMessage(
+        'VoiceCallLoader',
+        'ShowConfirmReload'
+      )
+    }
+
+    function ReloadUpStreamVideo() {
+      if (sharingPeer && sharingPeer.srcStream) {
+        var stream = sharingPeer.srcStream
+        var camVideoTrack = stream.getVideoTracks()[0];
+        var audioTrack = stream.getAudioTracks()[0];
+
+        if (videoSender && camVideoTrack) {
+          videoSender.replaceTrack(camVideoTrack)
+        }
+        if (audioSender && audioTrack) {
+          audioSender.replaceTrack(audioTrack)
+        }
+
+        if (sharingVideo)
+          sharingVideo.srcObject = stream
+
+        console.log("ReloadUpStreamVideo Done")
+      }
+    }
+
+    function RemoveUpStreamVideo() {
+      if (sharingPeer && sharingPeer.srcStream) {
+        var stream = sharingPeer.srcStream
+        var camVideoTrack = stream.getVideoTracks()[0];
+        var audioTrack = stream.getAudioTracks()[0];
+
+        if(videoSender)
+          videoSender.replaceTrack(null)
+        if(audioSender)
+          audioSender.replaceTrack(null)
+        if (sharingVideo)
+          sharingVideo.srcObject = null
+
+        console.log("RemoveUpStreamVideo Done")
+      }
+    }
+
+    function LocalVoiceCallStatusUpdated(peerConnection) {
+      var status = { Id:peerConnection.id, IsMicOn: peerConnection.isMicOn, IsVideoOn: peerConnection.isCameraOn };
+      MyGameInstance.SendMessage(
+        'VoiceCallLoader',
+        'LocalVoiceCallStatusUpdated',
+        JSON.stringify(status)
+      )
+    }
+
+    function UpdateRemoteVoiceCallStatus(peerConnection,cameraOn,micOn) {
+      var status = { Id:peerConnection.id, IsMicOn: micOn, IsVideoOn: cameraOn };
+      MyGameInstance.SendMessage(
+        'VoiceCallLoader',
+        'UpdateRemoteVoiceCallStatus',
+        JSON.stringify(status)
+      )
+    }
+  </script>
+</body>
+
+</html>

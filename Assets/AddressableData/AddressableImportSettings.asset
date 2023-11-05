@@ -1,0 +1,262 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4457b6e6d3304bd46a31be63dad3325c, type: 3}
+  m_Name: AddressableImportSettings
+  m_EditorClassIdentifier: 
+  allowGroupCreation: 1
+  rules:
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<asset>.*)\.fbx
+    matchType: 1
+    groupName: ${PATH[2]}_${category}_${name}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<asset>.*)\.json
+    matchType: 1
+    groupName: ${PATH[2]}_${category}_${name}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: ${PATH[2]}_${category}_${name}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<material>[^/]+)/(?<asset>.*)\.jpg
+    matchType: 1
+    groupName: ${PATH[2]}_${category}_${name}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<material>[^/]+)/(?<asset>.*)\.png
+    matchType: 1
+    groupName: ${PATH[2]}_${category}_${name}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<material>[^/]+)/(?<asset>.*)\.mat
+    matchType: 1
+    groupName: ${PATH[2]}_${category}_${name}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<asset>.*)\.jpg
+    matchType: 1
+    groupName: Thumb
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels:
+    - label_thumb
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/AllModel/(?<category>[^/]+)/(?<name>[^/]+)/(?<asset>.*)\.asset
+    matchType: 1
+    groupName: Thumb
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels:
+    - label_thumb
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/ColorTexture/(?<asset>.*)\.jpg
+    matchType: 1
+    groupName: ColorTexture
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels:
+    - label_ColorTexture
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/ColorTexture/(?<asset>.*)\.png
+    matchType: 1
+    groupName: ColorTexture
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels:
+    - label_ColorTexture
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/Thumb.png
+    matchType: 1
+    groupName: Thumb
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels:
+    - label_thumb
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/Thumb.jpg
+    matchType: 1
+    groupName: Thumb
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels:
+    - label_thumb
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.fbx
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.jpg
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.png
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.mat
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.unity
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.asset
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.exr
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/(?<asset>.*)\.physicMaterial
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/HouseData/(?<category>[^/]+)/HouseData.json
+    matchType: 1
+    groupName: ${PATH[2]}_${category}
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/Textures/(?<asset>.*)\.jpg
+    matchType: 1
+    groupName: Textures
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/Textures/(?<asset>.*)\.png
+    matchType: 1
+    groupName: Textures
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 
+  - path: Assets/AddressableData/Materials/(?<asset>.*)\.mat
+    matchType: 1
+    groupName: Materials
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 0
+    labelRefs: []
+    dynamicLabels: []
+    LabelMode: 0
+    simplified: 0
+    addressReplacement: 

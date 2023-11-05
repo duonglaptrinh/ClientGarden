@@ -1,0 +1,195 @@
+
+.container {
+    height: inherit;
+    width: 240px;
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+	z-index: 2;
+    left: 0;
+}
+
+#box-chat {
+    background-color: rgba(255, 255, 255, 0);
+    height: inherit;
+    width: 240px;
+    overflow-y: auto;
+    display: none;
+	z-index: 3;
+    left: 0;
+    position: absolute;
+    direction: rtl;
+}
+
+.menu-header {
+    background-color: rgb(40, 163, 152, 0.8);
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+}
+
+.title {
+    position: relative;
+    font-size: 22px;
+}
+
+#close-button {
+    position: absolute;
+    right: -30px;
+    cursor: pointer;
+    font-size: 26px;
+}
+
+#content-video {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    flex-direction: column;
+}
+
+#feature {
+    position: absolute;
+    display: none;
+    top: 20px;
+    left: 20px;
+    height: 50px;
+	width: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+	z-index: 5;
+	background: url('../TemplateData/Icon_users.png') no-repeat center;
+	background-size: 100%;
+}
+
+#toggle-video {
+    /* padding: 50px; */
+    color: white;
+}
+
+/* CSS VIDEO BOX */
+.owner-box, .friend-box {
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    direction: ltr;
+}
+
+.video {
+    background-color: rgb(255 255 255);
+    width: 100%;
+    height: 120px;
+    border-radius: 25px;
+    border: 3px solid #FFF;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.name {
+    background-color: #28A398;
+    opacity: 1.3;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    padding: 1px 10px;
+    border-radius: 18px;
+    font-size: 12px;
+    height: 30px;
+    align-items: center;
+}
+
+/* .name-user { } */
+
+.button-group {
+   display: flex;
+
+}
+
+.button-voice, .button-video {
+    width: 30px;
+    height: 30px;
+    background-color: #28A398;
+    padding: 4px;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.button-voice {
+    margin-right: 10px;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    #box-chat {
+        width: 330px;
+    }
+
+    .owner-box, .friend-box {
+        width: 190px;
+    }
+
+    #close-button {
+        left: -46px;
+        font-size: 26px;
+    }
+
+    .video {
+        height: 112px;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    #box-chat {
+        width: 320px;
+    }
+
+    .owner-box, .friend-box {
+        width: 180px;
+    }
+
+    #close-button {
+        left: -40px;
+        font-size: 26px;
+    }
+
+    .video {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #box-chat {
+        width: 300px;
+    }
+
+    .owner-box, .friend-box {
+        width: 168px;
+    }
+
+    #close-button {
+        left: -30px;
+        font-size: 26px;
+    }
+
+    .video {
+        height: 90px;
+    }   
+}
+
+.fa.fa-microphone-slash, .fa.fa-eye-slash{
+    display: none;
+}

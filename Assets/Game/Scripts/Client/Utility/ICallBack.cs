@@ -1,0 +1,1 @@
+﻿public delegate void ICallback(long statusCode, string result);
